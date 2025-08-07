@@ -5,68 +5,75 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>DesignerOS Access Code</title>
   <style>
-    /* --- Reset & Body --- */
     body {
       margin: 0;
       padding: 0;
-      background-color: #fdf8ed; /* Matches live page */
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-      color: #24292f;
+      background-color: #fefaf1;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: #222;
       display: flex;
       align-items: center;
       justify-content: center;
       min-height: 100vh;
       text-align: center;
-      box-sizing: border-box;
     }
-    /* --- Container Spacing & Title --- */
+
     h1 {
       font-size: 28px;
-      font-weight: 600;
-      margin: 0 0 24px;
+      font-weight: 700;
+      margin-bottom: 12px;
     }
-    /* --- Code Box --- */
-    .code-box {
-      background-color: #fff2d8;
-      border: 1px solid #e9dfc5;
-      border-radius: 12px;
-      padding: 18px 24px;
-      font-family: SFMono-Regular, Monaco, Consolas, 'Liberation Mono', Menlo, monospace;
-      font-size: 28px;
-      font-weight: 500;
-      letter-spacing: 0.5px;
+
+    p {
+      font-size: 18px;
+      margin-top: 0;
       margin-bottom: 24px;
-      user-select: all;
     }
-    /* --- Button --- */
+
+    .code-box {
+      background-color: #fff8e3;
+      border: 1px solid #e5dab2;
+      border-radius: 12px;
+      padding: 18px 28px;
+      font-size: 28px;
+      font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+      font-weight: 500;
+      display: inline-block;
+      user-select: all;
+      margin-bottom: 20px;
+    }
+
     button {
-      background-color: #24292f;
-      color: #ffffff;
+      background-color: #1f1f1f;
+      color: white;
       border: none;
       border-radius: 8px;
-      padding: 14px 28px;
-      font-size: 18px;
-      font-weight: 500;
+      padding: 14px 24px;
+      font-size: 17px;
       cursor: pointer;
-      margin-bottom: 16px;
+      margin-bottom: 10px;
     }
-    /* --- Copied Message --- */
+
     .copied {
       display: none;
-      color: #28a745;
       font-size: 16px;
       font-weight: 500;
-      margin-top: 8px;
+      color: #2ecc40;
+    }
+
+    .container {
+      max-width: 600px;
+      padding: 40px 20px;
     }
   </style>
 </head>
 <body>
-
-  <div>
-    <h1>Your access code:</h1>
-    <div class="code-box" id="code">7U4_c16yG8sv</div>
-    <button onclick="copyCode()">Copy your unique code</button>
-    <div class="copied" id="copiedMsg">✔ Code copied to clipboard</div>
+  <div class="container">
+    <h1>🔐 DesignerOS Access Code</h1>
+    <p>Use this password to unlock the system inside Figma</p>
+    <div class="code-box" id="code">7U4_c16yG8sv</div><br><br>
+    <button onclick="copyCode()">Copy Code</button>
+    <div class="copied" id="copiedMsg">✅ Code copied to clipboard</div>
   </div>
 
   <script>
@@ -75,7 +82,9 @@
       navigator.clipboard.writeText(code).then(() => {
         const msg = document.getElementById('copiedMsg');
         msg.style.display = 'block';
-        setTimeout(() => msg.style.display = 'none', 2500);
+        setTimeout(() => {
+          msg.style.display = 'none';
+        }, 2500);
       });
     }
   </script>
