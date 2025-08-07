@@ -55,7 +55,7 @@
 <body>
 
   <h1>Your access code:</h1>
-  <div class="code-box" id="code">7U4_c16yG8sv</div> <!-- Change for each repo -->
+  <div class="code-box" id="code">7U4_c16yG8sv</div> <!-- ← Replace with the code for each repo -->
   <button onclick="copyCode()">Copy your unique code</button>
   <div class="copied" id="copiedMessage">✔ Code copied to clipboard</div>
 
@@ -63,7 +63,12 @@
     function copyCode() {
       const code = document.getElementById('code').innerText;
       navigator.clipboard.writeText(code).then(() => {
-        document.getElementById('copiedMessage').style.display = 'block';
+        const copiedMessage = document.getElementById('copiedMessage');
+        copiedMessage.style.display = 'block';
+        // Optional: auto-hide after 3 seconds
+        setTimeout(() => {
+          copiedMessage.style.display = 'none';
+        }, 3000);
       });
     }
   </script>
