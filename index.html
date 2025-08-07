@@ -1,73 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Your Access Code</title>
+  <meta charset="UTF-8">
+  <title>Access Code</title>
   <style>
     body {
-      margin: 0;
-      padding: 0;
-      background-color: #fdf9f2;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+                   Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      background-color: #fdf8ed;
+      color: #222;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      color: #1a1a1a;
+      margin: 0;
     }
 
     h1 {
-      font-size: 1.5rem;
-      margin-bottom: 24px;
+      font-size: 24px;
       font-weight: 600;
+      margin-bottom: 20px;
     }
 
     .code-box {
-      background-color: #fff6d8;
+      background-color: #fff6dc;
+      padding: 12px 24px;
       border-radius: 12px;
-      padding: 18px 28px;
-      font-size: 1.5rem;
+      font-size: 28px;
+      font-weight: 500;
       font-family: monospace;
-      user-select: all;
+      margin-bottom: 24px;
       letter-spacing: 1px;
-      border: 1px solid #f0e5c5;
-      margin-bottom: 28px;
     }
 
     button {
       background-color: #000;
       color: #fff;
+      padding: 16px 32px;
+      font-size: 18px;
       border: none;
-      padding: 14px 28px;
-      font-size: 1.05rem;
-      border-radius: 10px;
+      border-radius: 8px;
       cursor: pointer;
-      transition: 0.2s ease;
     }
 
-    button:hover {
-      opacity: 0.9;
+    .copied {
+      margin-top: 20px;
+      color: green;
+      font-size: 16px;
+      display: none;
     }
   </style>
 </head>
 <body>
+
   <h1>Your access code:</h1>
-  <div id="code" class="code-box">7U4_c16yG8sv</div>
+  <div class="code-box" id="code">7U4_c16yG8sv</div> <!-- Change for each repo -->
   <button onclick="copyCode()">Copy your unique code</button>
+  <div class="copied" id="copiedMessage">✔ Code copied to clipboard</div>
 
   <script>
     function copyCode() {
-      const codeText = document.getElementById("code").innerText;
-      navigator.clipboard.writeText(codeText).then(() => {
-        const btn = document.querySelector("button");
-        btn.textContent = "Copied!";
-        setTimeout(() => {
-          btn.textContent = "Copy your unique code";
-        }, 1500);
+      const code = document.getElementById('code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        document.getElementById('copiedMessage').style.display = 'block';
       });
     }
   </script>
+
 </body>
 </html>
