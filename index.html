@@ -32,7 +32,7 @@
       font-family: monospace;
       margin-bottom: 24px;
       letter-spacing: 1px;
-      border: 1px solid #f3d98b; /* ← This line adds the border */
+      border: 1px solid #f3d98b;
     }
 
     button {
@@ -49,29 +49,13 @@
       margin-top: 20px;
       color: green;
       font-size: 16px;
-      display: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      visibility: hidden;
     }
   </style>
 </head>
 <body>
 
-  <h1>Your access code:</h1>
-  <div class="code-box" id="code">7U4_c16yG8sv</div> <!-- ← Replace for each system -->
-  <button onclick="copyCode()">Copy your unique code</button>
-  <div class="copied" id="copiedMessage">✔ Code copied to clipboard</div>
-
-  <script>
-    function copyCode() {
-      const code = document.getElementById('code').innerText;
-      navigator.clipboard.writeText(code).then(() => {
-        const copiedMessage = document.getElementById('copiedMessage');
-        copiedMessage.style.display = 'block';
-        setTimeout(() => {
-          copiedMessage.style.display = 'none';
-        }, 3000);
-      });
-    }
-  </script>
-
-</body>
-</html>
+  <h1>Your access code:</h
