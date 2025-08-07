@@ -5,68 +5,77 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>DesignerOS Access Code</title>
   <style>
+    /* --- Reset & Body --- */
     body {
       margin: 0;
-      background-color: #fdf8ed;
+      padding: 0;
+      background-color: #fdf8ed; /* Matches live page */
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      color: #24292f;
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 100vh;
-      flex-direction: column;
-      color: #1a1a1a;
+      min-height: 100vh;
+      text-align: center;
+      box-sizing: border-box;
     }
-
+    /* --- Container Spacing & Title --- */
     h1 {
       font-size: 28px;
       font-weight: 600;
-      margin-bottom: 20px;
+      margin: 0 0 24px;
     }
-
+    /* --- Code Box --- */
     .code-box {
-      background-color: #fdf6e3;
+      background-color: #fff2d8;
       border: 1px solid #e9dfc5;
       border-radius: 12px;
-      padding: 16px 24px;
+      padding: 18px 24px;
+      font-family: SFMono-Regular, Monaco, Consolas, 'Liberation Mono', Menlo, monospace;
       font-size: 28px;
       font-weight: 500;
-      font-family: monospace;
-      margin-bottom: 20px;
+      letter-spacing: 0.5px;
+      margin-bottom: 24px;
       user-select: all;
     }
-
+    /* --- Button --- */
     button {
-      background-color: #000;
-      color: #fff;
-      padding: 16px 32px;
-      font-size: 18px;
+      background-color: #24292f;
+      color: #ffffff;
       border: none;
       border-radius: 8px;
+      padding: 14px 28px;
+      font-size: 18px;
+      font-weight: 500;
       cursor: pointer;
       margin-bottom: 16px;
     }
-
+    /* --- Copied Message --- */
     .copied {
-      font-size: 16px;
-      color: green;
       display: none;
+      color: #28a745;
+      font-size: 16px;
+      font-weight: 500;
+      margin-top: 8px;
     }
   </style>
 </head>
 <body>
-  <h1>🟡 DesignerOS Access Code</h1>
-  <p>Use this password to unlock the system inside Figma</p>
-  <div class="code-box" id="code">7U4_c16yG8sv</div>
-  <button onclick="copyCode()">Copy Code</button>
-  <div class="copied" id="copiedMsg">✔ Code copied to clipboard</div>
+
+  <div>
+    <h1>Your access code:</h1>
+    <div class="code-box" id="code">7U4_c16yG8sv</div>
+    <button onclick="copyCode()">Copy your unique code</button>
+    <div class="copied" id="copiedMsg">✔ Code copied to clipboard</div>
+  </div>
 
   <script>
     function copyCode() {
-      const text = document.getElementById('code').innerText;
-      navigator.clipboard.writeText(text).then(() => {
+      const code = document.getElementById('code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
         const msg = document.getElementById('copiedMsg');
         msg.style.display = 'block';
-        setTimeout(() => { msg.style.display = 'none'; }, 2500);
+        setTimeout(() => msg.style.display = 'none', 2500);
       });
     }
   </script>
