@@ -3,61 +3,63 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>DesignerOS – Access Code</title>
+  <title>Your Unique Access Code</title>
   <style>
     body {
-      background-color: #f8f3e7;
+      margin: 0;
+      padding: 0;
+      background-color: #fefaf1;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
-      margin: 0;
     }
-
-    .container {
-      text-align: center;
+    h1 {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+      color: #333;
     }
-
     .code-box {
-      background-color: #fff3d6;
-      padding: 10px 20px;
+      background-color: #fff2cc;
       border-radius: 6px;
-      font-size: 24px;
-      font-weight: 500;
+      padding: 12px 18px;
+      font-size: 1.3rem;
       letter-spacing: 1px;
-      margin: 16px 0;
-      display: inline-block;
+      font-family: monospace;
+      user-select: all;
+      margin-bottom: 20px;
     }
-
-    .button {
+    button {
       background-color: #000;
       color: white;
       border: none;
-      padding: 12px 24px;
+      padding: 12px 20px;
+      font-size: 1rem;
       border-radius: 6px;
       cursor: pointer;
-      font-size: 16px;
+      transition: 0.2s ease;
     }
-
-    .button:active {
-      transform: scale(0.98);
+    button:hover {
+      opacity: 0.9;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h2>Your access code:</h2>
-    <div class="code-box" id="code">6dH2;8\sV,G5</div>
-    <br />
-    <button class="button" onclick="copyCode()">Copy your unique code</button>
-  </div>
+  <h1>Your access code:</h1>
+  <div id="code" class="code-box">7U4_c16yG8sv</div>
+  <button onclick="copyCode()">Copy your unique code</button>
 
   <script>
     function copyCode() {
-      const code = document.getElementById("code").innerText;
-      navigator.clipboard.writeText(code).then(() => {
-        alert("Code copied to clipboard!");
+      const codeText = document.getElementById("code").innerText;
+      navigator.clipboard.writeText(codeText).then(() => {
+        const btn = document.querySelector("button");
+        btn.textContent = "Copied!";
+        setTimeout(() => {
+          btn.textContent = "Copy your unique code";
+        }, 1500);
       });
     }
   </script>
